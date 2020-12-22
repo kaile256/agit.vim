@@ -127,7 +127,7 @@ function! s:log.setlocal()
   endfunction
 
   function! s:exit()
-    if !exists('t:git')
+    if !exists('t:agit_git')
       return
     endif
     silent! only!
@@ -154,7 +154,7 @@ function! s:log.setlocal()
 endfunction
 
 function! s:emmit(force)
-  call w:view.emmit(a:force)
+  call w:agit_view.emmit(a:force)
 endfunction
 
 function! s:log.emmit(...)
