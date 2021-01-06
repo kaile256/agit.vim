@@ -99,6 +99,9 @@ function! s:log.setlocal()
     autocmd BufLeave <buffer> if g:agit_enable_auto_show_commit | call s:cleanup() | endif
 
     autocmd BufEnter <buffer> if g:agit_enable_auto_refresh | call agit#reload() | endif
+    if exists('##VimResized')
+      autocmd VimResized <buffer> if g:agit_enable_auto_refresh | call agit#reload() | endif
+    endif
 
     autocmd ShellCmdPost <buffer> call agit#reload()
 
