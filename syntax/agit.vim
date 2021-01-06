@@ -8,7 +8,7 @@ syn cluster agitRefs contains=agitHead,agitBranch,agitRemote,agitTag
 syn match agitTree /^[|/\\* _\-.]\+/ nextgroup=agitRef,agitLog
 syn match agitLog /.*/ contained contains=@agitLogFields
 
-syn region agitRef start=" \zs(" end=")\ze " end="\.\.\." contained contains=@agitRefs nextgroup=agitLog keepend
+syn region agitRef matchgroup=agitRefDelimiter start=" \zs(" end=")\ze " matchgroup=agitLogEllipsis end="\.\.\." contained contains=@agitRefs nextgroup=agitLog keepend
 syn keyword agitHead HEAD contained
 syn match agitRemote /r:[^, :)]\+/ contained
 syn match agitTag /t:[^, :)]\+/ contained
@@ -23,8 +23,10 @@ syn match agitAuthorMark /<}/ contained conceal
 
 hi def link agitTree Constant
 hi def link agitLog Normal
+hi def link agitLogEllipsis agitLog
 hi def link agitHead Special
 hi def link agitRef Directory
+hi def link agitRefDelimiter agitRef
 hi def link agitRemote Statement
 hi def link agitTag String
 hi def link agitDate Statement
