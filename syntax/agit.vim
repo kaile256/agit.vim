@@ -21,7 +21,7 @@ syn match agitTreeEdgeH /_/ contained containedin=agitTreeEdge0,agitTreeEdge1,ag
 " syn match agitTreeEdgeUnmerged /[^\\|/*]\+\n[^^]\+\zs\*/ contained containedin=agitTreeEdge0,agitTreeEdge1,agitTreeEdge2,agitTreeEdge3,agitTreeEdge4,agitTreeEdge5,agitTreeEdge6,agitTreeEdge7,agitTreeEdge8,agitTreeEdge9
 
 syn match agitLogEllipsis /\.\{3}/ contained containedin=agitLog
-syn region agitRef matchgroup=agitRefDelimiter start=" \zs(" end=")\ze " matchgroup=agitLogEllipsis end="\.\.\." contained contains=@agitRefs nextgroup=agitLog keepend
+syn region agitRef matchgroup=agitRefDelimiter start=" \zs(" end=")\ze " matchgroup=agitLogEllipsis end="\.\.\." contained contains=@agitRefs nextgroup=agitLog keepend oneline
 syn keyword agitHead HEAD contained
 syn match agitRemote /r:[^, :)]\+/ contained
 syn match agitTag /t:[^, :)]\+/ contained
